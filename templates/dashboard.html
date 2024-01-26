@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foxy URL</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/dashboard.css')}}">
+    <link rel="shortcut icon" href="imgs/logo.webp" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <nav class="">
+        <div class="logo-name">
+            <div class="logo-img">
+                <img src="{{url_for('static', filename = 'imgs/logo.webp')}}" alt="">
+            </div>
+            <span class="logo_name">
+                Foxy URLS
+            </span>
+        </div>
+        <div class="menu-items">
+            <ul>
+                <li class="active">
+                    <a href="#">
+                        <i class='bx bxs-dashboard'></i>
+                        <span class="link-name">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('custom_url') }}">
+                        <i class='bx bx-stats'></i>
+                        <span class="link-name">Create Custom</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('index') }}">
+                        <i class='bx bx-link'></i>
+                        <span class="link-name">Create URL</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-conversation'></i>
+                        <span class="link-name underline">Support</span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <ul class="socials">
+                <li>
+                    <a href="https://www.facebook.com/vardhanGanugula/">
+                        <i class='bx bxl-facebook' style="color: #316FF6;"></i>
+                        <span class="link-name">Facebook</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://twitter.com/ganugulavardhan">
+                        <i class='bx bxl-twitter' style="color: #1DA1F2;"></i>
+                        <span class="link-name">Twitter</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/ig_vandron/">
+                        <i class='bx bxl-instagram' style="color: #d62976;"></i>
+                        <span class="link-name">Instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@code_gang">
+                        <i class='bx bxl-youtube' style="color: #f00;"></i>
+                        <span class="link-name">YouTube</span>
+                    </a>
+                </li>
+
+            </ul>
+            <ul class="log-out">
+                <li class="active">
+                    <a href="#">
+                        <i class='bx bx-log-out'></i>
+                        <span class="link-name underline">Log Out</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+    <main class="dashboard">
+        <div class="top">
+            <i class='bx bx-menu-alt-left close_sidebar'></i>
+            <div class="heading">
+                <h4>VandronXurl DashBoard</h4>
+            </div>
+            <div class="profile">
+                <img src="{{url_for('static', filename = 'imgs/logo.webp')}} " alt="">
+            </div>
+        </div>
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class='bx bx-tachometer'></i>
+                    <span class="text">Dashboard</span>
+                </div>
+                <div class="boxes">
+                    <div class="box box1">
+                        <i class='bx bx-share-alt'></i>
+                        <span class="text">Total Links</span>
+                        <span class="number"> {{ totalLinks }} </span>
+                    </div>
+                    <div class="box box2">
+                        <i class='bx bx-bar-chart'></i>
+                        <span class="text">Total Clicks</span>
+                        <span class="number">{{ total_views }} </span>
+                    </div>
+                    <div class="box box3">
+                        <i class='bx bxs-hand-up'></i>
+                        <span class="text">Unique Clicks</span>
+                        <span class="number">{{ unique_views }} </span>
+                    </div>
+                </div>
+            </div>
+            <div class="activity">
+                <div class="title">
+                    <i class='bx bx-stats' style="background-color: #f00;"></i>
+                    <span class="text">Links Overview</span>
+                </div>
+                <div class="activity-data">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>shortcode</th>
+                                <th>link</th>
+                                <th>total clicks</th>
+                                <th>unique clicks</th>
+                                <th>IP's</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for info in data %}
+                            <tr>
+                                <td><a href="#"> {{ info['shortened_link'] }} </a></td>
+                                <td><a href=" {{ info['main_link'] }} " class="main_link"> {{ info['main_link'] }} </a></td>
+                                <td> {{ info['views'] }} </td>
+                                <td> {{ info['ip_addr'] | unique | list | length }} </td>
+                                <td>
+                                    <a href="#">
+                                        <i class='bx bx-link-external'></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src=" {{url_for('static', filename = 'scripts/dashboard.js')}} "></script>
+</body>
+
+</html>

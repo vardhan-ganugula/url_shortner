@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+main{
+    background-color: #fdfdfd;
+    min-height: 100vh;
+}
+main nav{
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+}
+nav .logo{
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 45px;
+    margin: 10px;
+    background: #7F00FF;
+    display: inline-block;
+    color: #fff;
+    border-radius: 5px;
+}
+section.form_data{
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 100px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+main section .form{
+    background-color: #fff;
+    border-radius: 5px;
+    min-width: 350px;
+    max-width: 500px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
+}
+.form .form-head{
+    background-color: #1640D6;
+    height: 70px;
+    text-align: center;
+    border-radius: 5px 5px 0 0 ;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+}
+.form-head h1{
+    line-height: 70px;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+}
+.form-body{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.5s ease;
+    
+}
+.form-group{
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 5px 0;
+}
+.form-group input{
+    padding: 15px 20px;
+    outline: none;
+    border: 1px solid #1640D6;
+    width: 100%;
+    border-radius: 5px;
+    border-bottom: 2.1px solid #1640D6;
+}
+.form-group:nth-child(2) input{
+    border: 1px solid #00ff11;
+    border-bottom: 2.1px solid #00ff11;
+
+}
+.form-group input:focus ~label{
+    color: #1640D6;
+    top: -5px;
+    background-color: #fff;
+    padding: 0 10px;
+    left: 10px;
+    font-size: .7em;
+}
+.form-group:nth-child(2) input:focus ~label{
+    color: #00ff11;
+}
+.form-group input:valid ~ label{
+    top: -5px;
+    color: #1640D6;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: .7em;
+
+}
+.form-group label{
+    position: absolute;
+    color: #b1b1b1;
+    top: 18px;
+    left: 20px;
+    line-height: 25px;
+    font-size: .9rem;
+    transition: all 0.5s ease;
+}
+.form-group ion-icon{
+    position: absolute;
+    right: 20px;
+    top: 19px;
+    font-size: 1.2rem;
+    color: #fff;
+    transition: transform .5s ease;
+}
+.form-body button, a{
+    width: 100%;
+    padding: 15px;
+    background-color: #1640D6;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-size: .8em;
+    transition: all .5s ease;
+}
+.form-body button:hover{
+    background-color: #2f58e9;
+}
+.form-group a{
+    background-color: #00ff11;
+}
+.form-group a:hover{
+    background-color: #66ff70;
+}
+.form-group button:hover ~ ion-icon{
+    transform: rotate(360deg);
+}
+.form-body a{
+    padding: 14px;
+}
+.form-body .showBox{
+    margin: 10px 0;
+    border: 2px solid #2272FF;
+    width: 100%;
+    padding: 11px;
+    position: relative;
+    background-color: #fff;
+    color: #1b1b1b;
+    border-radius: 5px;
+    display: none;
+}
+.showBox input{
+    width: 100%;
+    font-size: .8rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+.showBox ion-icon{
+    position: absolute;
+    color: #2272FF;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
